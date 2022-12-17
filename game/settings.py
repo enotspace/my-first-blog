@@ -26,9 +26,9 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 SECRET_KEY = 'django-insecure-&r_t6!amm@v$5=%k)_cw#q_&#j%&dt#$376rb-$jwujsg=_9^_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["http://enotspace.pythonanywhere.com"]
 
 
 # Application definition
