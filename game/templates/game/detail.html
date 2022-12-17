@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}{{game.game_title}}{% endblock %}
+
+{% block content %}
+
+<h2>{{game.game_title}}</h2>
+
+<p>{{game.game_description}}</p>
+
+<em>{{game.pub_date}}</em>
+
+{% if game.was_published_recently %}
+Нова гра на сайті!!
+{% endif %}
+<hr>
+<pre>{{game.game_code}}</pre>
+</hr>
+<hr>
+<form action="{% url 'gameapp:leave_comment' game.id %}" method="POST">
+
+  {% csrf_token %}
+
+  <input type="text" required placeholder="Ваше І'мя" name="name"><br>
+  <textarea name="text" required="" placeholder="Вось сюди коментар" cols="30" rows="10"></textarea><br>
+
+  <button type="submit">Опублікувати</button>
+
+</form>
+</hr>
+<hr>
+
+{% if Comment_list %}
+
+  {% for c in Comment_list %}
+    <p>
+      <strong>{{c.author_name}}</strong>
+      <p>{{c.comment_text}}</p>
+    </p>
+  {% endfor %}
+
+{% else %}
+Коментарі не знайдено
+{% endif %}
+
+</hr>
+{% endblock %}

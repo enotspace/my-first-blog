@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Ігри{% endblock %}
+
+{% block content %}
+
+    {% if Game_list %}
+    
+      {% for a in Game_list %}
+        <a href="{% url 'gameapp:detail' a.id %}">{{a.game_title}}</a>
+      {% endfor %}  
+
+    {% else %}
+        Ігри не добавленні зачекайте або зверніться до адміністрації
+    {% endif %}
+
+{% endblock %}
